@@ -15,8 +15,8 @@ variable "cidr_block_Private_subnet" {
 
 variable "cidr_block_Public_subnet" {
     default = {
-        az-1a = {cidr = "10.10.1.0/24", az = "us-east-1a"}
-        az-1b = {cidr = "10.10.2.0/24", az = "us-east-1b"}
+        az-1a = {cidr = "10.10.30.0/24", az = "us-east-1a"}
+        az-1b = {cidr = "10.10.40.0/24", az = "us-east-1b"}
     }
 }
 
