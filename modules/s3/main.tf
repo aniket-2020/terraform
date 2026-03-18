@@ -19,7 +19,6 @@ resource "aws_s3_bucket_public_access_block" "example" {
 
 resource "aws_kms_key" "example" {
   description             = "An example symmetric encryption KMS key"
-  enable_key_rotation     = true
   deletion_window_in_days = 20
 }
 
@@ -28,7 +27,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 
   rule {
     apply_server_side_encryption_by_default {
-      kms_master_key_id = aws_kms_key.mykey.arn
+      kms_master_key_id = aws_kms_key.example.arn
       sse_algorithm     = "aws:kms"
     }
   }

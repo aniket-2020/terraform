@@ -17,7 +17,7 @@ resource "aws_subnet" "my_public_subnet" {
   for_each = var.cidr_block_Public_subnet
   vpc_id              = aws_vpc.my_vpc.id
   availability_zone   = each.value.az
-  map_customer_owned_ip_on_launch = true
+  map_public_ip_on_launch = true
   region = var.region
 
   tags = {
@@ -29,7 +29,6 @@ resource "aws_subnet" "my_private_subnet" {
   for_each = var.cidr_block_Public_subnet
   vpc_id              = aws_vpc.my_vpc.id
   availability_zone   = each.value.az
-  map_customer_owned_ip_on_launch = false
   region = var.region
 
   tags = {

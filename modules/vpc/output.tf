@@ -4,28 +4,28 @@ output "vpc_id" {
 
 output "public_subnet_map" {
     value = {
-        for k, v in aws_aws_subnet.my_public_subnet :
+        for k, v in aws_subnet.my_public_subnet :
         k => v.id
     }
 }
 
 output "private_subnet_map" {
     value = {
-        for k, v in aws_aws_subnet.my_private_subnet :
+        for k, v in aws_subnet.my_private_subnet :
         k => v.id
     }
 }
 
 output "public_subnet_ids" {
     value = [
-        for v in aws_aws_subnet.my_public_subnet :
+        for v in aws_subnet.my_public_subnet :
         v.id
     ]
 }
 
 output "private_subnet_ids" {
     value = [
-        for v in aws_aws_subnet.my_private_subnet :
+        for v in aws_subnet.my_private_subnet :
         v.id    
     ]
 }
