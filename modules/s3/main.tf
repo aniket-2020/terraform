@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "this" {
+resource "aws_s3_bucket" "mybucket" {
   bucket = "acme-inc-bucket-0318"
 
   tags = {
@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "this" {
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.this
+  bucket = aws_s3_bucket.mybucket
 
   block_public_acls       = true
   block_public_policy     = true
@@ -23,7 +23,7 @@ resource "aws_kms_key" "example" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
-  bucket = aws_s3_bucket.this.id
+  bucket = aws_s3_bucket.mybucket.id
 
   rule {
     apply_server_side_encryption_by_default {
@@ -34,7 +34,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "example" {
-  bucket = aws_s3_bucket.this.id
+  bucket = aws_s3_bucket.mybucket.id
 
   rule {
     id = "Allow small object transitions"
