@@ -9,7 +9,8 @@ resource "aws_s3_bucket" "mybucket" {
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.mybucket
+  bucket = aws_s3_bucket.mybucket.id
+  
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
